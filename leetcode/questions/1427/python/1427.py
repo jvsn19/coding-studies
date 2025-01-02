@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     def stringShift(self, s: str, shift: List[List[int]]) -> str:
         str_ptr = 0
