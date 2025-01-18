@@ -10,11 +10,9 @@ class Solution {
         }
 
         count.forEach((key, val) -> {
-            if (heap.size() < k) {
-                heap.offer(new int[] {key, val});
-            } else if (heap.peek()[1] < val) {
+            heap.offer(new int[] {key, val});
+            if(heap.size() > k) {
                 heap.poll();
-                heap.offer(new int[] {key, val});
             }
         });
 
