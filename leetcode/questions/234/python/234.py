@@ -1,11 +1,8 @@
-from typing import Optional
-
 # Definition for singly-linked list.
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
         def get_mid(node):
@@ -27,10 +24,8 @@ class Solution:
             prev = None
 
             while node:
-                aux = node.next
-                node.next = prev
-                prev = node
-                node = aux
+                node.next, node, prev = prev, node.next, node
+
 
         def compare(node_a, node_b):
             while node_a and node_b:
