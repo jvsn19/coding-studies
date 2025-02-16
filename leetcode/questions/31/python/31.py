@@ -20,13 +20,15 @@ class Solution:
         while first_small > -1 and nums[first_small] >= nums[first_small + 1]:
             first_small -= 1
 
+        # if first_small == -1 the array is decrescent. Just revert it
         if first_small != -1:
-            # swap the biggest value with the smallest value on the right part
+            # swap the value that caused the decrement with the smallest value on it's right that's greater than it
             first_big = last
 
             while nums[first_big] <= nums[first_small]:
                 first_big -= 1
             
             nums[first_small], nums[first_big] = nums[first_big], nums[first_small]
+            # From this point the subarray [first_small + 1, last] is decrescent. Revert it
             
         revert(first_small + 1, last)
